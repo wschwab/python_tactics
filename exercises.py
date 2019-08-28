@@ -4,9 +4,15 @@
 # if you don't know the answer already, the words you'll need to search in google are ALWAYS in the description!
 #
 # the test runner will not test anything you output that is falsy (functions are truthy)
-# so just replace the null with your function and KILL EM ALL!
+# so just replace the pass with your function and KILL EM ALL!
 #
 # be careful not to change the function names (the test runner only knows to look for the names given)
+
+# Todo stuff: creating, writing, and reading files
+# if I got really serious I could put in some numpy/pandas stuff and/or some requests
+
+# Some potentially helpful imports:
+import math
 
 # PRINTING TO THE SCREEN
 
@@ -63,11 +69,6 @@ def stringContains():
 def instancesInString():
     pass
 
-# HEX AND DECIMAL
-# ask if necessary for Python
-
-# LISTS
-
 # this function receives a list of strings and makes one string out of them
 # example input: (['Writing', 'Python', 'makes', 'me', 'hungry.'])
 # example output: 'Writing Python makes me hungry.'
@@ -81,6 +82,9 @@ def joinWords():
 # example output: ''
 def censorSentence():
     pass
+
+# HEX AND DECIMAL
+# ask if necessary for Python
 
 # NUMBERS
 
@@ -183,3 +187,24 @@ def formatAsMoney():
 # example output 3: =
 def inequality():
     pass
+
+# this function should receive either a whole number (integer) or a decimal (float)
+# and return 'int' for integers and 'float' for decimals
+# example input 1: 123.123
+# example output 1: 'float'
+# example input 2: 01923
+# example output 2: 'int'
+def intOrFloat():
+    pass
+
+# this function receives three numbers: x, y, and r
+# the function should return True if (x, y) is within radius r from the origin (0,0)
+# and False if it isn't
+# example input 1: (5, 12, 14)
+# example output 1: True
+# example output 2: (5, 12, 12)
+# example output 2: False
+def isXYinRadius():
+    pass
+
+# LISTS, SETS, AND TUPLES

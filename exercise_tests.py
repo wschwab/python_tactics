@@ -11,9 +11,13 @@ import inspect
 def returnsSomething(func):
     return any(isinstance(node, ast.Return) for node in ast.walk(ast.parse(inspect.getsource(func))))
 
+def usesComprehension(func):
+    # return any(isinstance(node, ast.ListComp) for node in ast.walk(ast.parse(inspect.getsource(func))))
+    pass
+
 # Exercise Tests:
 
-# hope this works  -based onhttps://stackoverflow.com/questions/33767627/python-write-unittest-for-console-print/56300627#56300627
+# hope this works  -based on https://stackoverflow.com/questions/33767627/python-write-unittest-for-console-print/56300627#56300627
 def test_printer(capsys):
     test_case = printer()
     captured_output = capsys.readouterr()
@@ -98,8 +102,10 @@ def test_piAll():
     assert piAll(nums) == expected_output
 
 def test_piComprehension():
-    # TODO: figure out ast for checking for a comprehension?
-    pass
+    assert usesComprehension(piComprehension())
+    nums = [1,2,7,10]
+    expected_output = [3.141592653589793, 6.283185307179586, 21.991148575128552, 31.41592653589793]
+    assert piAll(nums) == expected_output
 
 def test_sliceOfPi():
     nums = [5,11,3.141592653589793,9]
@@ -107,13 +113,13 @@ def test_sliceOfPi():
     assert sliceOfPi(nums) == expected_output
 
 def test_falseOddsComprehension():
-    # TODO: Check for comprehension
+    assert usesComprehension(falseOddsComprehension())
     nums = [1,-8,34,49]
     expected_output = [False, True, True, False]
     assert falseOddsComprehension(nums) == expected_output
 
 def test_doubleFirstTwo():
-    # TODO: Check for comprehension
+    assert usesComprehension(doubleFirstTwo())
     nums = [1,-8,34,49]
     expected_output = [2, -16, 34, 49]
     assert doubleFirstTwo(nums) == expected_output
@@ -131,3 +137,16 @@ def test_inequality():
     assert inequality(num1, num2) == '>'
     assert inequality(num2, num1) == '<'
     assert inequality(num1, num1) == '='
+
+def test_intOrFloat():
+    num1 = 123.123
+    expected_output1 = 'float'
+    num2 = 01923
+    expected_output2 = 'int'
+    assert intOrFloat(num1) == expected_output1
+    assert intOrFloat(num2) == expected_output2
+
+def test_isXYinRadius():
+    x, y = 5, 12
+    r1, r22 = 5, 12, 14
+    assert isXYinRadius(x, y, r1) == True && isXYinRadius(x, y, r2) == False
