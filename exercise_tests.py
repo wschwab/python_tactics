@@ -12,8 +12,10 @@ def returnsSomething(func):
     return any(isinstance(node, ast.Return) for node in ast.walk(ast.parse(inspect.getsource(func))))
 
 def usesComprehension(func):
-    # return any(isinstance(node, ast.ListComp) for node in ast.walk(ast.parse(inspect.getsource(func))))
-    pass
+    return any(isinstance(node, ast.ListComp) for node in ast.walk(ast.parse(inspect.getsource(func))))
+
+def usesArgsOrKwargs(func):
+    return any(isinstance(node, (ast.vararg, ast.kwarg)) for node in ast.walk(ast.parse(inspect.getsource(func))))
 
 # Exercise Tests:
 
@@ -46,28 +48,46 @@ def test_twoStringAdd():
     assert twoStringAdd(test_case[0], test_case[1]) == expected_output
 
 def test_allStringAdd():
-    pass
+    assert usesArgsOrKwargs(allStringAdd)
+    str1, str2, str3, str4 = "This", " is", " a", " test."
+    expected_output = "This is a test."
+    assert allStringAdd(str1, str2, str3, str4) == expected_output
 
 def test_stringContains():
-    pass
+    word1, word2, word3 = 'funkadelic', 'funk', 'parliament'
+    assert stringContains(word1, word2) == True
+    assert stringContains(word3, word2) == False
 
 def test_instancesInString():
-    pass
+    testStr = 'blah blah blah monkey'
+    testWord = 'blah'
+    assert instancesInString(testStr, testWord) == 3
 
 def test_joinWords():
-    pass
+    testList = ['Writing', 'Python', 'makes', 'me', 'hungry.']
+    expected_output = 'Writing Python makes me hungry.'
+    assert joinWords(testList) == expected_output
 
 def test_censorSentence():
-    pass
+    testStr = 'I am a great moron'
+    testCensorWords = ['a', 'moron']
+    expected_output = 'I am great'
+    assert censorSentence(testStr, testCensorWords) == expected_output
 
 def test_addTwo():
-    x = 12049
-    y = 157
+    x, y = 12049, 157
     assert addTwo(x, y) == 12206
 
 def test_addAll():
+    assert usesArgsOrKwargs(addAll)
     num1,num2,num3,num4 = 1,10,100,1000
     assert addAll(num1,num2,num3,num4) == 1111
+
+def test_fizzBuzz():
+    num1, num2, num3 = 9, 10, 15
+    assert fizzBuzz(num1) == "Fizz"
+    assert fizzBuzz(num2) == "Buzz"
+    assert fizzBuzz(num3) == "FizzBuzz"
 
 def test_greatest():
     nums = [1, 10, -100, 50]
@@ -148,5 +168,34 @@ def test_intOrFloat():
 
 def test_isXYinRadius():
     x, y = 5, 12
-    r1, r22 = 5, 12, 14
+    r1, r2 = 5, 12, 14
     assert isXYinRadius(x, y, r1) == True && isXYinRadius(x, y, r2) == False
+
+def test_addTwoLists():
+    list1, list2 = [1, 2, 3], [4, 5, 'monkey']
+    expected_output = [1, 2, 3, 4, 5, 'monkey']
+    assert addTwoLists(list1, list2) == expected_output
+
+def test_addAllLists():
+    list1, list2, list3, list4, list5, list6: ['I', -1], ['think', None], ['these', 'examples'], ['are'], [], ['silly', 9]
+    expected_output: ['I', -1, 'think', None, 'these', 'examples', 'are', 'silly', 9]
+    assert addAllLists(list1,list2,list3,list4,list5,;ist6) == expected_output
+
+def test_alphabetize():
+    testList = ['you', 'are', 'the', 'best', 'you']
+    expected_output = ['are', 'best', 'the', 'you', 'you']
+    assert alphebetize(testList) == expected_output
+
+def test_filterStrings():
+    testList = ['blah', 1, {}, 'rawr']
+    expected_output = [1, {}]
+    assert filterStrings(testList) == expected_output
+
+def test_filterByType():
+    testList = ['blah', 1, {}, 'rawr']
+    testType1 = 'int'
+    testType2 = 'dict'
+    expected_output1 = ['blah', {}, 'rawr']
+    expected_output2 = ['blah', 1, 'rawr']
+    assert filterByType(testList, testType1) == expected_output1
+    assert filterByType(testList, testType2)

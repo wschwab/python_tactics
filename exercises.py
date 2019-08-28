@@ -8,7 +8,7 @@
 #
 # be careful not to change the function names (the test runner only knows to look for the names given)
 
-# Todo stuff: creating, writing, and reading files
+# Todo stuff: creating, writing, and reading files, kwargs
 # if I got really serious I could put in some numpy/pandas stuff and/or some requests
 
 # Some potentially helpful imports:
@@ -57,7 +57,7 @@ def allStringAdd():
 # (and False in any other case)
 # example input: 'funkadelic', 'funk'
 # example output: True
-# example input: 'parliment', 'funk'
+# example input: 'parliament', 'funk'
 # example output: False
 def stringContains():
     pass
@@ -78,8 +78,8 @@ def joinWords():
 # this function should take a sentence (space separated words) and a list of
 # words to censor, and return a new string with the words removed (not replaced
 # with &*#@ or the like)
-# example input: '', [] TODO: Create witty joke here
-# example output: ''
+# example input: 'I am a great moron', ['a', 'moron']
+# example output: 'I am great'
 def censorSentence():
     pass
 
@@ -94,10 +94,22 @@ def censorSentence():
 def addTwo():
     pass
 
-# same as above, but with any number of args
+# same as above, but with any number of args (you might need to search for *args)
 # example input: 1, 10, 100, 1000
 # example output: 1111
 def addAll():
+    pass
+
+# for some reason, this is a popular problem
+# given a number, print "Fizz" if it's divisible by 3, "Buzz" if it's divisible
+# by 5, and "FizzBuzz" if it's divisible by both 3 and 5
+# example input 1: 9
+# example output 1: "Fizz"
+# example input 2: 10
+# example output 2: "Buzz"
+# example input 3: 15
+# example output 3: "FizzBuzz"
+def fizzBuzz():
     pass
 
 # here we'll get a list of numbers, and need to return the greatest (closest
@@ -208,3 +220,37 @@ def isXYinRadius():
     pass
 
 # LISTS, SETS, AND TUPLES
+
+# take two lists, and return one list with all the elements from both in order
+# example input: [1, 2, 3], [4, 5, 'monkey']
+# example output: [1, 2, 3, 4, 5, 'monkey']
+def addTwoLists():
+    pass
+
+# same as above, but with any number of lists
+# example input: (['I', -1], ['think', None], ['these', 'examples'], ['are'], [], ['silly', 9])
+# example output: ['I', -1, 'think', None, 'these', 'examples', 'are', 'silly', 9]
+def addAllLists():
+    pass
+
+# given a list of strings, return a list with the same strings alphebetized
+# example input: ['you', 'are', 'the', 'best', 'you']
+# example output: ['are', 'best', 'the', 'you', 'you']
+def alphebetize():
+    pass
+
+# given a list with different data types, filter out the strings,
+# and return everything else in order
+# you should be able to filter out using 'float', 'int', 'string', 'list', and 'dict'
+# example input: ['blah', 1, {}, 'rawr']
+# example output: [1, {}]
+def filterStrings():
+    pass
+
+# similar, but now we can put the type we want to filter as a second arg in the function
+# example input 1: ['blah', 1, {}, 'rawr'], 'int'
+# example output 1: ['blah', {}, 'rawr']
+# example input 2: ['blah', 1, {}, 'rawr'], 'dict'
+# example output 2: ['blah', 1, 'rawr']
+def filterByType():
+    pass
