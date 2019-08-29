@@ -75,6 +75,36 @@ def test_censorSentence():
     expected_output = 'I am great'
     assert censorSentence(testStr, testCensorWords) == expected_output
 
+def test_decToHex():
+    testInt = 1234
+    expected_output = '0x4d2'
+    assert decToHex(testInt) == expected_output
+
+def test_hexToDec():
+    testHex = '0x4d2'
+    expected_output = 1234
+    assert hexToDec(testHex) == expected_output
+
+def test_decToBinary():
+    testInt = 123
+    expected_output = '0b1111011'
+    assert decToBinary(testInt) == expected_output
+
+def test_binaryToDec():
+    testBinary = '0b1111011'
+    expected_output = 123
+    assert binaryToDec(testBinary) == expected_output
+
+def test_binaryToOct():
+    testBinary = '0b1111010'
+    expected_output = '0o172'
+    assert binaryToOct(testBinary) == expected_output
+
+def test_octToHex():
+    testOct = '0o777'
+    expected_output = '0x1ff'
+    assert octToHex(testOct) == expected_output
+
 def test_addTwo():
     x, y = 12049, 157
     assert addTwo(x, y) == 12206
@@ -200,3 +230,17 @@ def test_filterByType():
     expected_output2 = ['blah', 1, 'rawr']
     assert filterByType(testList, testType1) == expected_output1
     assert filterByType(testList, testType2)
+
+def test_listContains():
+    testList = ['blah', 1, {}, 'rawr']
+    test1 = 'rawr'
+    test2 = 1
+    test3 = 'monkey'
+    assert listContains(testList, test1) == True
+    assert listContains(testList, test2) == True
+    assert listContains(testList, test3) == False
+
+def test_leftTruncate():
+    testList = ['blah', 1, {}, 'rawr']
+    expected_output = [{},'rawr']
+    assert leftTruncate(testList, 2) == expected_output

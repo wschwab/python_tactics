@@ -83,8 +83,41 @@ def joinWords():
 def censorSentence():
     pass
 
-# HEX AND DECIMAL
-# ask if necessary for Python
+# BINARY, HEX, OCT AND DECIMAL
+
+# convert a normal base 10 number to hexadecimal (the hex should be in a string)
+# example input: 1234
+# example output: '0x4d2'
+def decToHex():
+    pass
+
+# now go from a hexadecimal (base 16) to a normal base 10 (decimal)
+# note that the hex is going in as a string
+# example input: '0x4d2'
+# example output: 1234
+def hexToDec():
+    pass
+
+# next we'll work on binary - this one should convert a normal int into binary
+# note again that the binary is in a string
+# example input: 123
+# example output: '0b1111011'
+def decToBinary():
+    pass
+
+# octals (base 8) aren't so widely used, but do still come up, and like hex and
+# binary, Python recognizes them, so now we'll mix it up using octs
+# this function should take a binary string ('0b101', for example) and return an oct
+# example input: '0b1111011'
+# example output: '0o173'
+def binaryToOct():
+    pass
+
+# now we'll go from octal to hexadecimal
+# example input: '0o777'
+# example output: '0x1ff'
+def octToHex():
+    pass
 
 # NUMBERS
 
@@ -253,4 +286,21 @@ def filterStrings():
 # example input 2: ['blah', 1, {}, 'rawr'], 'dict'
 # example output 2: ['blah', 1, 'rawr']
 def filterByType():
+    pass
+
+# this function will receive two arguments: a list and some value
+# it should search the list for the value, returning True if the list contains
+# it, and False if it doesn't
+# example input 1: ['blah', 1, {}, 'rawr'], 'rawr'
+# example output 1: True
+# example input 2: ['blah', 1, {}, 'rawr'], 1
+# example output 2: True
+def listContains():
+    pass
+
+# this function will truncate (drop, cut) a number of values from the beginning
+# of a list based on a number passed into it
+# example input: [1,2,3,4,5,6,7,8,9,'monkey'], 4
+# example output: [5,6,7,8,9,'monkey']
+def leftTruncate():
     pass
