@@ -1,4 +1,4 @@
-from exercises import *
+from .exercises import *
 import pytest
 
 #Following two are needed for checking for return statements:
@@ -6,6 +6,9 @@ import ast
 import inspect
 
 # Helper functions:
+
+def printsSomething(func):
+    return any(isinstance(node, ast.Print) for node in ast.walk(ast.parse(inspect.getsource(func))))
 
 # Checks if there is a return in the function passed in as an argument
 def returnsSomething(func):
@@ -20,10 +23,8 @@ def usesArgsOrKwargs(func):
 # Exercise Tests:
 
 # hope this works  -based on https://stackoverflow.com/questions/33767627/python-write-unittest-for-console-print/56300627#56300627
-def test_printer(capsys):
-    test_case = printer()
-    captured_output = capsys.readouterr()
-    assert captured_output
+def test_printer():
+    assert printsSomething(printer())
 
 def test_declarer():
     assert returnsSomething(declarer())
@@ -161,7 +162,7 @@ def test_inequality():
 def test_intOrFloat():
     num1 = 123.123
     expected_output1 = 'float'
-    num2 = 01923
+    num2 = 1923
     expected_output2 = 'int'
     assert intOrFloat(num1) == expected_output1
     assert intOrFloat(num2) == expected_output2
@@ -169,7 +170,7 @@ def test_intOrFloat():
 def test_isXYinRadius():
     x, y = 5, 12
     r1, r2 = 5, 12, 14
-    assert isXYinRadius(x, y, r1) == True && isXYinRadius(x, y, r2) == False
+    assert isXYinRadius(x, y, r1) == True and isXYinRadius(x, y, r2) == False
 
 def test_addTwoLists():
     list1, list2 = [1, 2, 3], [4, 5, 'monkey']
@@ -177,9 +178,9 @@ def test_addTwoLists():
     assert addTwoLists(list1, list2) == expected_output
 
 def test_addAllLists():
-    list1, list2, list3, list4, list5, list6: ['I', -1], ['think', None], ['these', 'examples'], ['are'], [], ['silly', 9]
+    list1, list2, list3, list4, list5, list6 = ['I', -1], ['think', None], ['these', 'examples'], ['are'], [], ['silly', 9]
     expected_output: ['I', -1, 'think', None, 'these', 'examples', 'are', 'silly', 9]
-    assert addAllLists(list1,list2,list3,list4,list5,;ist6) == expected_output
+    assert addAllLists(list1,list2,list3,list4,list5,list6) == expected_output
 
 def test_alphabetize():
     testList = ['you', 'are', 'the', 'best', 'you']

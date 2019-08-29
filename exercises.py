@@ -18,7 +18,7 @@ import math
 
 # To pass this test, all we need to do is print something to the command line in this function
 def printer():
-    print('Hello World!')
+    pass
 
 # To pass this test, return something
 def declarer():
