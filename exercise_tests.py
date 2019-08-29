@@ -1,9 +1,9 @@
 from exercises import *
+import pytest
+
 #Following two are needed for checking for return statements:
 import ast
 import inspect
-# needs imports for pytest and watch, I suspect
-
 
 # Helper functions:
 
