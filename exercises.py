@@ -255,6 +255,8 @@ def isXYinRadius():
 # LISTS, SETS, AND TUPLES
 
 # take two lists, and return one list with all the elements from both in order
+# there are a few ways to do this, and in additional to the traditional ways,
+# you may want to search the 'extend' method
 # example input: [1, 2, 3], [4, 5, 'monkey']
 # example output: [1, 2, 3, 4, 5, 'monkey']
 def addTwoLists():
@@ -303,4 +305,25 @@ def listContains():
 # example input: [1,2,3,4,5,6,7,8,9,'monkey'], 4
 # example output: [5,6,7,8,9,'monkey']
 def leftTruncate():
+    pass
+
+# same as above, but now it should truncate from the end of the list
+# example input: [1,2,3,4,5,6,7,8,9,'monkey'], 4
+# example output: [1,2,3,4,5,6]
+def rightTruncate():
+    pass
+
+# take a list, and add an element to the end of it
+# there are a few good ways of doing this - you may want to search for 'append'
+# example input: [1,2,3,4,5,6,7,8,9,'monkey'], 'chunky'
+# example output: [1,2,3,4,5,6,7,8,9,'monkey', 'chunky']
+def addToEndOfList():
+    pass
+
+# same, but add one element to any index in the list
+# there should be three arguments - the original list, the element to be inserted,
+# and the index it should be inserted at
+# example input 1: ['blah', 1, {}, 'rawr'], 'funkadelic', 3
+# example output: ['blah', 1, {}, 'funkadelic', 'rawr']
+def addAnywhereInList():
     pass

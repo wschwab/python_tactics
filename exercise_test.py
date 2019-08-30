@@ -244,3 +244,19 @@ def test_leftTruncate():
     testList = ['blah', 1, {}, 'rawr']
     expected_output = [{},'rawr']
     assert leftTruncate(testList, 2) == expected_output
+
+def test_rightTruncate():
+    testList = ['blah', 1, {}, 'rawr']
+    expected_output = ['blah', 1]
+    assert rightTruncate(testList, 2) == expected_output
+
+def test_addToEndOfList():
+    testList = ['blah', 1, {}, 'rawr']
+    testElem = 'chunky'
+    expected_output = []'blah', 1, {}, 'rawr', 'chunky']
+    assert addToEndOfList(testList, testElem)
+
+def test_addAnywhereInList():
+    testList = [1,2,3,4,5,6,7,8,9,'monkey']
+    expected_output = [0,1,2,3,4,5,6,7,8,9,'monkey']
+    assert addAnywhereInList(testList, 0, 0) == expected_output
