@@ -254,6 +254,18 @@ def isXYinRadius():
 
 # LISTS, SETS, AND TUPLES
 
+# given a list of numbers, return the sum of all the numbers in the list
+# example input: [1,-8,34,49]
+# example output: 76
+def sumList():
+    pass
+
+# return the length of a list
+# example input: ['I', -1, 'think', None, 'these', 'examples', 'are', 'silly', 9]
+# example output: 9
+def getLength():
+    pass
+
 # take two lists, and return one list with all the elements from both in order
 # there are a few ways to do this, and in additional to the traditional ways,
 # you may want to search the 'extend' method
@@ -326,4 +338,11 @@ def addToEndOfList():
 # example input 1: ['blah', 1, {}, 'rawr'], 'funkadelic', 3
 # example output: ['blah', 1, {}, 'funkadelic', 'rawr']
 def addAnywhereInList():
+    pass
+
+# this function should take a list with at least three elements, and change the third
+# element in to 'boo' while keeping all other elements the same
+# example input: [0,1,2]
+# example output: [0,1,'boo']
+def makeThirdBoo():
     pass

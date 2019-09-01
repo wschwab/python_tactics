@@ -202,6 +202,16 @@ def test_isXYinRadius():
     r1, r2 = 5, 12, 14
     assert isXYinRadius(x, y, r1) == True and isXYinRadius(x, y, r2) == False
 
+def test_sumList():
+    testList = [1,-8,34,49,3786.24]
+    expected_output = 3862.24
+    assert sumList(testList) == expected_output
+
+def test_getLength():
+    testList = [1,-8,34,49]
+    expected_output = 4
+    assert getLength(testList) == expected_output
+
 def test_addTwoLists():
     list1, list2 = [1, 2, 3], [4, 5, 'monkey']
     expected_output = [1, 2, 3, 4, 5, 'monkey']
@@ -253,10 +263,15 @@ def test_rightTruncate():
 def test_addToEndOfList():
     testList = ['blah', 1, {}, 'rawr']
     testElem = 'chunky'
-    expected_output = []'blah', 1, {}, 'rawr', 'chunky']
+    expected_output = ['blah', 1, {}, 'rawr', 'chunky']
     assert addToEndOfList(testList, testElem)
 
 def test_addAnywhereInList():
     testList = [1,2,3,4,5,6,7,8,9,'monkey']
     expected_output = [0,1,2,3,4,5,6,7,8,9,'monkey']
     assert addAnywhereInList(testList, 0, 0) == expected_output
+
+def test_makeThirdBoo():
+    testList = ['blah', 1, {}, 'rawr']
+    expected_output = ['blah', 1, 'boo', 'rawr']
+    assert makeThirdBoo(testList) == expected_output
