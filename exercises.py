@@ -83,6 +83,13 @@ def joinWords():
 def censorSentence():
     pass
 
+# take a string and split it into a list of each character
+# you should take a look at the 'list()' function
+# example input: 'Hi there, how are you?'
+# example output: ['H', 'i', ' ', 't', 'h', 'e', 'r', 'e', ',', ' ', 'h', 'o', 'w', ' ', 'a', 'r', 'e', ' ', 'y', 'o', 'u', '?']
+def splitIntoList():
+    pass
+
 # BINARY, HEX, OCT AND DECIMAL
 
 # convert a normal base 10 number to hexadecimal (the hex should be in a string)
@@ -103,6 +110,10 @@ def hexToDec():
 # example input: 123
 # example output: '0b1111011'
 def decToBinary():
+    pass
+
+# and now back the other way - from binary to dec
+def binaryToDec():
     pass
 
 # octals (base 8) aren't so widely used, but do still come up, and like hex and
@@ -252,7 +263,7 @@ def intOrFloat():
 def isXYinRadius():
     pass
 
-# LISTS, SETS, AND TUPLES
+# LISTS
 
 # given a list of numbers, return the sum of all the numbers in the list
 # example input: [1,-8,34,49]
@@ -270,7 +281,7 @@ def getLength():
 # there are a few ways to do this, and in additional to the traditional ways,
 # you may want to search the 'extend' method
 # example input: [1, 2, 3], [4, 5, 'monkey']
-# example output: [1, 2, 3, 4, 5, 'monkey']
+# example output: [1,2,3,4,5,'monkey']
 def addTwoLists():
     pass
 
@@ -345,4 +356,63 @@ def addAnywhereInList():
 # example input: [0,1,2]
 # example output: [0,1,'boo']
 def makeThirdBoo():
+    pass
+
+# lists can contain lists as elements, and lists comprising of other lists are
+# sometimes called lists of lists - these can be useful for a number of reasons
+# this function will take a list comprising of three two item lists, which can be
+# thought of as XY coordinates, and then we'll alter the y coordinates by +2
+# example input: [[0,0],[0,1],[0,2]]
+# example output: [[0,2],[0,3],[0,4]]
+def yPlusTwo():
+    pass
+
+# we'll receive a similar list of lists here, but you should return all the y coords
+# example input: [[0,0],[0,1],[0,2]]
+# example output: [0, 1, 2]
+def returnYCoords():
+    pass
+
+# remember the len() function? This function will take two lists, and should return
+# the elements from the longer array past the length of shorter
+# example input: ['blah', 1, {}, 'rawr'], [1,2,3,4,5,6,7,8,9,'monkey']
+# example output: [5,6,7,8,9,'monkey']
+def listExcess():
+    pass
+
+# given a list of lists, return one list with all of the elements of the lists
+# example input: [['blah', 1, {}, 'funkadelic', 'rawr'],[1, 2, 3, 4, 5, 'monkey']]
+# example output: ['blah', 1, {}, 'funkadelic', 'rawr', 1, 2, 3, 4, 5, 'monkey']
+def flattenList():
+    pass
+
+# SETS
+
+# this funcion takes a list and removes any repeated elements
+# even though you're handling lists, you should take a look at sets
+# example input: ['blah', 'blah', 'yadda', 'yadda', 'yadda']
+# example output: ['blah', 'yadda']
+def uniqueList():
+    pass
+
+# sets have a lot of their own rules, so we're going to review a lot of ops
+# that were covered in lists with sets since they're done differently
+# there is a bit of a gotcha in this one - simply make and return an empty set
+def emptySet():
+    pass
+
+# there's a bit of a riddle inside this one - the function takes a set and another
+# argument, and you need to return two sets, one being the roiginal set, and the other
+# the set with the second argument added
+# You should look at the copy() function, and try to understand what's going on here
+# example input: {1,2,3,4}, 5
+# example output: {1,2,3,4}, {1,2,3,4,5}
+def copySet():
+    pass
+
+# given a set, add and remove an element
+# the function will have three args: the set, the thing to insert, and the thing to take out
+# example input: {'a', 'brown', 'cat'}, 'car', 'cat'
+# example output: {'a', 'brown', 'car'}
+def addRemoveSet():
     pass
