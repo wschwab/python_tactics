@@ -178,13 +178,13 @@ def indexOfGreatest():
 
 # given a list of floats, round each number down
 # example input: ([ 1.5, 10, -10.1233, 5.9 ])
-# example output: [2, 10, -10, 6] CHECK HOW PYTHON ROUNDS .5
+# example output: [1, 10, -10, 5]
 def roundDownToInt():
     pass
 
 # similar, but instead of rounding down, wound to the nearest integer
 # example input: ([ 1.5, 10, -10.1233, 5.9 ])
-# example output: [2, 10, -10, 6] CHECK HOW PYTHON ROUNDS .5
+# example output: [2, 10, -10, 6]
 def roundToNearestInt():
     pass
 
@@ -402,7 +402,7 @@ def emptySet():
     pass
 
 # there's a bit of a riddle inside this one - the function takes a set and another
-# argument, and you need to return two sets, one being the roiginal set, and the other
+# argument, and you need to return two sets, one being the original set, and the other
 # the set with the second argument added
 # You should look at the copy() function, and try to understand what's going on here
 # example input: {1,2,3,4}, 5
@@ -416,3 +416,27 @@ def copySet():
 # example output: {'a', 'brown', 'car'}
 def addRemoveSet():
     pass
+
+# add two sets together into one set - the two arguments should be the two sets
+# example input: {1,2,3}, {4,5,6}
+# example output: {1,2,3,4,5,6}
+def setUnion():
+    pass
+
+# what we did above can also be called a union - it takes two sets, and returns
+# a set that contains any element that appears in both of them. An intersection
+# returns only the elements that appear in both.
+# example input: {1,2,3,4}, {3,4,5,6}
+# example output: {1,2,3,4,5,6}
+def setIntersection():
+    pass
+
+# like lists, sets also have comprehensions (one liners), but the syntax is
+# different - look it up
+# this function should contain a comprehension, along with using both the union
+# and intersection operators (you may have used update() and intersection_update()
+# for the last couple of exercises, but here you should be using the operators)
+def setComprehension():
+    pass
+
+# TUPLES

@@ -37,30 +37,23 @@ It's important to be in the `python_tactics` folder for some of the steps ahead.
 #### Setting up a virtual environment
 
 The suggestion in Python is to set up a new virtual environment for each project.
-We'll work on getting you up and running with that next. Note that the command for Python
-can vary. I write `python3` below, but on your machine it may be `python` or `py`. Best
-of luck figuring it out if it's not one of those three. I'm going to split this into
-Windows and Mac/Linux, just because they're a little different:
+We're going to use `pipenv` for creating virtual environments, so we'll describe
+how to get you up and running with that next.
 
-##### Mac/Linux
+Note that the command for Python and pip (the Python module installing tool)
+can vary. I write `python3` and `pip3` below, but on your machine it may be `python` (and `pip`) or `py`. Best of luck figuring it out if it's not one of those three.
 
-```
-$ python3 -m venv /your/path/to/python_tactics
-$ source /your/path/to/python_tactics/bin/activate
-
-```
-
-###### Windows (PowerShell)
+Type in the following commands (the second needs to be in the python_tactics folder).
+If you're on Windows, leave out the word `sudo` (but you might need to be running
+as the administrator - right click the start menu and run a prompt as admin if needed).
 
 ```
-$ python3 -m venv c:\path\to\python_tactics
-$ c:\path\to\python_tactics\Scripts\activate.bat
-```
-'Your path to python_tactics' means the full path in your file system to the folder
-for Python Tactics. In most file explorers you can get in from the menu or by right-clicking
-when you're in the folder.
+$ sudo pip3 install pipenv
+$ pipenv shell
 
-If the venv activated properly, your prompt should change:
+```
+
+If the virtual environment (venv) activated properly, your prompt should change:
 
 ```
 (python_tactics)$
@@ -77,7 +70,7 @@ won't need special permissions (`sudo` or admin) to install it, since it should
 only install to the venv.
 
 ```
-(python_tactics)$ pip3 install pytest-watch
+(python_tactics)$ pipenv install pytest-watch
 ```
 
 #### Running Pytest-Watch

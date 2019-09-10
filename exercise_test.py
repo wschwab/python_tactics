@@ -41,11 +41,11 @@ def usesArgsOrKwargs(func):
 # there are probably more elegant ways to do this, but I opted for clear intent
 @pytest.mark.skipif(empty(printer), reason="Printer exercise not started yet")
 def test_printer():
-    assert printsSomething(printer)
+    assert printsSomething(printer), "should print to terminal"
 
 @pytest.mark.skipif(empty(declarer), reason="Declarer exercise not started yet")
 def test_declarer():
-    assert returnsSomething(declarer)
+    assert returnsSomething(declarer), "should return something"
 
 @pytest.mark.skipif(empty(stringer), reason="Stringer exercise not started yet")
 def test_stringer():
@@ -392,3 +392,17 @@ def test_addRemoveSet():
     testSet = {'timothy', 'archibald', 'joseph', 'logan', 'bob'}
     expected_output = {'timothy', 'archibald', 'logan', 'bob', 'marcus'}
     assert addRemoveSet(testSet, 'marcus', 'joseph') == expected_output
+
+@pytest.mark.skipif(empty(setUnion), reason="Set Union exercise not started yet")
+def test_setUnion():
+    testSet1 = {5,6,7}
+    testSet2 = {7,8,9}
+    expected_output = {5,6,7,8,9}
+    assert setUnion(testSet1, testSet2) == expected_output
+
+@pytest.mark.skipif(empty(setIntersection), reason="Set Intersection exercise not started yet")
+def test_setIntersection():
+    testSet1 = {15,20,25,30}
+    testSet2 = {25,30,35,40}
+    expected_output = {30,35}
+    assert setIntersection(testSet1, testSet2) == expected_output
