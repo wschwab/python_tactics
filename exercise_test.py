@@ -49,111 +49,120 @@ def test_declarer():
 
 @pytest.mark.skipif(empty(stringer), reason="Stringer exercise not started yet")
 def test_stringer():
-    assert returnsSomething(stringer())
-    assert type(stringer()) == "string"
+    assert returnsSomething(stringer()) and type(stringer()) == "string", "should return a string"
 
 @pytest.mark.skipif(empty(printAndReturn), reason="Print and Return exercise not started yet")
 def test_printAndReturn():
-    test_case = printAndReturn()
-    captured_output = capsys.readouterr()
-    assert returnsSomething(test_case) and captured_output
+    assert returnsSomething(printAndReturn), "should return something"
+    assert printsSomething(printAndReturn), "should print something"
 
 @pytest.mark.skipif(empty(capslocker), reason="Capslocker exercise not started yet")
 def test_capslocker():
     test_case = 'blah'
     expected_output = 'BLAH'
-    assert capslocker(test_case) == expected_output
+    assert capslocker(test_case) == expected_output, "should turn string to all caps"
 
 @pytest.mark.skipif(empty(twoStringAdd), reason="Two String Add exercise not started yet")
 def test_twoStringAdd():
     test_case = ['Life is', ' so wonderful']
     expected_output = 'Life is so wonderful'
-    assert twoStringAdd(test_case[0], test_case[1]) == expected_output
+    assert twoStringAdd(test_case[0], test_case[1]) == expected_output, "should combine two strings"
 
 @pytest.mark.skipif(empty(allStringAdd), reason="All String Add exercise not started yet")
 def test_allStringAdd():
-    assert usesArgsOrKwargs(allStringAdd)
+    assert usesArgsOrKwargs(allStringAdd), "should take any number of strings as arguments"
     str1, str2, str3, str4 = "This", " is", " a", " test."
     expected_output = "This is a test."
-    assert allStringAdd(str1, str2, str3, str4) == expected_output
+    assert allStringAdd(str1, str2, str3, str4) == expected_output, "should add strings together"
 
 @pytest.mark.skipif(empty(stringContains), reason="String Contains exercise not started yet")
 def test_stringContains():
     word1, word2, word3 = 'funkadelic', 'funk', 'parliament'
-    assert stringContains(word1, word2) == True
-    assert stringContains(word3, word2) == False
+    assert stringContains(word1, word2) == True, "should return True if second string is contained in first"
+    assert stringContains(word3, word2) == False, "should return False if second string isn't contained in first"
 
 @pytest.mark.skipif(empty(instancesInString), reason="Instances In String exercise not started yet")
 def test_instancesInString():
     testStr = 'blah blah blah monkey'
     testWord = 'blah'
-    assert instancesInString(testStr, testWord) == 3
+    assert instancesInString(testStr, testWord) == 3, "should return how many times second string appears in first"
 
 @pytest.mark.skipif(empty(joinWords), reason="Join Words exercise not started yet")
 def test_joinWords():
     testList = ['Writing', 'Python', 'makes', 'me', 'hungry.']
     expected_output = 'Writing Python makes me hungry.'
-    assert joinWords(testList) == expected_output
+    assert joinWords(testList) == expected_output, "should put words together with spaces in between"
 
 @pytest.mark.skipif(empty(censorSentence), reason="Censor Sentence exercise not started yet")
 def test_censorSentence():
     testStr = 'I am a great moron'
     testCensorWords = ['a', 'moron']
     expected_output = 'I am great'
-    assert censorSentence(testStr, testCensorWords) == expected_output
+    assert censorSentence(testStr, testCensorWords) == expected_output, "should return censored string"
 
 @pytest.mark.skipif(empty(splitIntoList), reason="Split Into List exercise not started yet")
 def test_splitIntoList():
     testStr = 'It was the best of times'
     expected_output = ['I', 't', ' ', 'w', 'a', 's', ' ', 't', 'h', 'e', ' ', 'b', 'e', 's', 't', ' ', 'o', 'f', ' ', 't', 'i', 'm', 'e', 's']
-    assert splitIntoList(testStr) == expected_output
+    assert splitIntoList(testStr) == expected_output, "should return list of individual characters"
 
 @pytest.mark.skipif(empty(decToHex), reason="Dec to Hex exercise not started yet")
 def test_decToHex():
     testInt = 1234
     expected_output = '0x4d2'
-    assert decToHex(testInt) == expected_output
+    assert decToHex(testInt) == expected_output, "should convert decimal number to hexadecimal"
 
 @pytest.mark.skipif(empty(hexToDec), reason="Hex to Dec exercise not started yet")
 def test_hexToDec():
     testHex = '0x4d2'
     expected_output = 1234
-    assert hexToDec(testHex) == expected_output
+    assert hexToDec(testHex) == expected_output, "should convert hexadecimal to decimal"
 
-@pytest.mark.skipif(empty(decToBinary), reason="Dec to Binnary exercise not started yet")
+@pytest.mark.skipif(empty(decToBinary), reason="Dec to Binary exercise not started yet")
 def test_decToBinary():
     testInt = 123
     expected_output = '0b1111011'
-    assert decToBinary(testInt) == expected_output
+    assert decToBinary(testInt) == expected_output, "should convert decimal to binary"
 
 @pytest.mark.skipif(empty(binaryToDec), reason="Binary to Dec exercise not started yet")
 def test_binaryToDec():
     testBinary = '0b1111011'
     expected_output = 123
-    assert binaryToDec(testBinary) == expected_output
+    assert binaryToDec(testBinary) == expected_output, "should convert binary to decimal"
 
 @pytest.mark.skipif(empty(binaryToOct), reason="Binary to Oct exercise not started yet")
 def test_binaryToOct():
     testBinary = '0b1111010'
     expected_output = '0o172'
-    assert binaryToOct(testBinary) == expected_output
+    assert binaryToOct(testBinary) == expected_output, "should convert binary to octal"
 
 @pytest.mark.skipif(empty(octToHex), reason="Oct to Hex exercise not started yet")
 def test_octToHex():
     testOct = '0o777'
     expected_output = '0x1ff'
-    assert octToHex(testOct) == expected_output
+    assert octToHex(testOct) == expected_output, "should convert octal to hexadecimal"
+
+@pytest.mark.skipif(empty(getEncoding), reason="Get Encoding exercise not started yet")
+def test_getEncoding():
+    testChar = ' '
+    assert getEncoding(testChar) == 32, "should return utf-8 encoding number of argument"
+
+@pytest.mark.skipif(empty(getCharacter), reason="Get Char exercise not started yet")
+def test_getCharacter():
+    testEncoding = 926
+    expected_output = chr(926)
+    assert getChar(testEncoding) == expected_output, "should return utf-8 character corresponding to arg"
 
 @pytest.mark.skipif(empty(addTwo), reason="Add Two exercise not started yet")
 def test_addTwo():
     x, y = 12049, 157
-    assert addTwo(x, y) == 12206
+    assert addTwo(x, y) == 12206, "should add two numbers"
 
 @pytest.mark.skipif(empty(addAll), reason="Add All exercise not started yet")
 def test_addAll():
-    assert usesArgsOrKwargs(addAll)
+    assert usesArgsOrKwargs(addAll), "should take any number of arguments"
     num1,num2,num3,num4 = 1,10,100,1000
-    assert addAll(num1,num2,num3,num4) == 1111
+    assert addAll(num1,num2,num3,num4) == 1111, "should add all args together"
 
 @pytest.mark.skipif(empty(fizzBuzz), reason="FizzBuzz exercise not started yet")
 def test_fizzBuzz():

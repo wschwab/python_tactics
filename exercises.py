@@ -72,6 +72,9 @@ def instancesInString():
 # this function receives a list of strings and makes one string out of them
 # example input: (['Writing', 'Python', 'makes', 'me', 'hungry.'])
 # example output: 'Writing Python makes me hungry.'
+# note: the function should put a space between words, but not before the first
+# word, nor after the last
+# if you're stuck, search 'python3 join()'
 def joinWords():
     pass
 
@@ -128,6 +131,39 @@ def binaryToOct():
 # example input: '0o777'
 # example output: '0x1ff'
 def octToHex():
+    pass
+
+# UTF-8 ENCODING
+
+'''
+Introduction: Deep down, the only thing your computer truly undertands are 0s and 1s.
+The deep down of your computer is essentially a whole lot of really teeny tiny light
+switches. For each light switch 0 == off, and 1 == on. Each 'on' or 'off' is called
+a bit. 8 bits (as to say, 8 0s and/or 1s) are 1 byte.
+
+We just saw above that we can do math with 0s and 1s - those are the binary numbers
+above. This section is to teach about writing with numbers. We use a code in which
+binary numbers represent letters (and punctuation, spaces, etc.). There are a bunch
+of encodings, but UTF-8 is the most common/important, so we'll be looking at it.
+
+Put a different way, every character (letter, etc.) that can be put in string (such
+as this one) on a deeper level is represented by a number. We'll be playing around
+with those numbers now.
+'''
+
+# get the numerical representation of a character
+# example input: 'Z'
+# example output: 90
+# don't panic! Search for Python's ord() function
+def getEncoding():
+    pass
+
+# now back the other way - given a number, return the character encoded in UTF-8
+# at that number
+# example input: 937
+# example output: Ω
+# if you found ord(), you can probably find the function for this, but just in case I'll write it over here far to the right so you have to scroll for it and the people who don't want the hint don't have to have it staring them in the face: look up chr()
+def getCharacter():
     pass
 
 # NUMBERS
