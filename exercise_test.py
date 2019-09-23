@@ -13,18 +13,17 @@ def empty(func):
             return True
 
 
-
-def printsSomething(func):
-    # return any(isinstance(node, ast.FunctionDef) for node in ast.walk(ast.parse(inspect.getsource(func))))
-    prints_something = False
+# second argument examples: 'print', 'set', 'tuple'
+def doesSomething(func, nodeId):
+    does_something = False
     for node in ast.walk(ast.parse(inspect.getsource(func))):
         try:
-            prints_something = (node.id == 'print')
+            does_something = (node.id == nodeId)
         except AttributeError:
             pass
-        if prints_something:
+        if does_something:
             break
-    return prints_something
+    return does_something
 
 def returnsSomething(func):
     return any(isinstance(node, ast.Return) for node in ast.walk(ast.parse(inspect.getsource(func))))
@@ -35,13 +34,16 @@ def usesComprehension(func):
 def usesArgsOrKwargs(func):
     return any(isinstance(node, (ast.vararg, ast.kwarg)) for node in ast.walk(ast.parse(inspect.getsource(func))))
 
+def usesGenerator(func):
+    return any(isinstance(node, ast.GeneratorExp) for node in ast.walk(ast.parse(inspect.getsource(func))))
+
 # Exercise Tests:
 
 # since empty() checks if there's a print called and is called in the decorator
 # there are probably more elegant ways to do this, but I opted for clear intent
 @pytest.mark.skipif(empty(printer), reason="Printer exercise not started yet")
 def test_printer():
-    assert printsSomething(printer), "should print to terminal"
+    assert doesSomething(printer, 'print'), "should print to terminal"
 
 @pytest.mark.skipif(empty(declarer), reason="Declarer exercise not started yet")
 def test_declarer():
@@ -54,7 +56,7 @@ def test_stringer():
 @pytest.mark.skipif(empty(printAndReturn), reason="Print and Return exercise not started yet")
 def test_printAndReturn():
     assert returnsSomething(printAndReturn), "should return something"
-    assert printsSomething(printAndReturn), "should print something"
+    assert doesSomething(printAndReturn, 'print'), "should print something"
 
 @pytest.mark.skipif(empty(capslocker), reason="Capslocker exercise not started yet")
 def test_capslocker():
@@ -415,3 +417,22 @@ def test_setIntersection():
     testSet2 = {25,30,35,40}
     expected_output = {30,35}
     assert setIntersection(testSet1, testSet2) == expected_output
+
+# under the hood a set comprehension is a generator with set() called on it
+@pytest.mark.skipif(empty(setComprehension), reason="Set Comprehension exercise not started yet")
+def test_setComprehension():
+    assert doesSomething(setComprehension, 'set') and usesGenerator(setComprehension)
+
+@pytest.mark.skipif(empty(immutableSet), reason="Immutable Set exercise not started yet")
+def test_immutableSet():
+    testSet = {11,22,33,44,55}
+    assert immutableSet(testSet) == frozenset(testSet)
+
+@pytest.mark.skipif(empty(getZip), reason="Get Zip exercise not started yet")
+def test_getZip():
+    assert isinstance(getZip, list), "output should be wrapped in a list"
+    assert doesSomething(getZip, 'zip'), "should zip two collections together"
+
+@pytest.mark.skipif(empty(tupleComprehension), reason="Tuple Comprehension exercise not started yet")
+def test_tupleComprehension():
+    assert doesSomething(setComprehension, 'tuple') and usesGenerator(tupleComprehension)

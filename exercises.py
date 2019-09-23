@@ -475,4 +475,45 @@ def setIntersection():
 def setComprehension():
     pass
 
+# we've seen that sets are mutable - that means we can change them around (like
+# change values, or add and drop values), but there's a way to freeze a set
+# and make it immutable (unchangeable) see if you can find out what it is
+# the function should take a set as an argument
+def immutableSet():
+    pass
+
 # TUPLES
+
+# tuples are yet another way to store values in Python, but once made, the contents
+# can't be changed once created
+# while lists use [] and sets {}, tuples will use ()
+# like we saw with sets, there are some catches in using the various built-ins
+# Python gives us for tuples - this comes from () being used for some other things
+# besides sets too (much like {} is also used for dicts, as we'll see later)
+
+# zipping takes any two 'collections': lists, sets, even other tuples of the same
+# length, and combines them into pairs of tuples by putting the first of each
+# element together in a tuple pair, followed by a tuple pair of the second element
+# and so on
+# given two collections (as arguments), return the zip wrapped in a list
+# bonus: play around with zip() on the command line, and figure out why you should wrap it in a list
+# can you figure out how to accomplish this using a list comprehension?
+# example input: [1,2,3], {'a','b','c'}
+# example output: [(1,'c'),(2,'b'),(3,'a')]
+def getZip():
+    pass
+
+# we've seen comprehensions for lists and sets - there are also tuple comprehensions
+# they're made by calling a function, as with sets (you can't just use parentheses)
+# look up what happens if you do try some thing like (x*2 for x in [1,2,3,4]) - it
+# does compile, but it doesn't make a tuple, it makes a generator
+def tupleComprehension():
+    pass
+
+
+'''
+Link clipboard:
+Great piece on generators: https://realpython.com/introduction-to-python-generators/
+On binary left and right shift: https://stackoverflow.com/questions/3411749/operator-in-python
+More binary manipulation stuff than I'll ever need: https://www.devdungeon.com/content/working-binary-data-python
+'''
