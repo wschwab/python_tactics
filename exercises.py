@@ -510,6 +510,36 @@ def getZip():
 def tupleComprehension():
     pass
 
+# DICTIONARIES
+
+# you can think of dictionaries as lists, just instead of indexing by number (the
+# first element is 0, the second 1, etc), you decide how something should be looked
+# up, so instead of the_list[0] = foo, you'd have the_dict['jekyll'] = hyde
+# In the above example, 'jekyll' is referred to as the 'key', since it can get
+# you to the information you're looking for, much like the right key gets you
+# where you'd like to get (at least that's what I assume, but I totally made that
+# up.)
+# In this exercise, return a dictionary that has a key named 'jekyll' which is attached
+# to some value (not 0 or False)
+def jekyllDict():
+    pass
+
+# this function should take a dictionary and should return a list of keys
+# example input: {'hyde': 'jekyll', 'superman': 'clark', 'batman': 'donald trump'}
+# example output: ['hyde', 'superman', 'batman']
+def getDictKeys():
+    pass
+
+# this next function should take a dictionary and another string, return true if
+# the string is a key in the dictionary (to a value which isn't False or 0), and
+# False if it isn't (even if it's a value in the dictionary!)
+# example input 1: {'hyde': 'jekyll', 'superman': 'clark', 'batman': 'donald trump'}, 'batman'
+# example output 1: True
+# example input 2: {'hyde': 'jekyll', 'superman': 'clark', 'batman': 'donald trump'}, 'donald trump'
+# example output 2: False (since it's only a value, not a key)
+def checkMembership():
+    pass
+
 
 '''
 Link clipboard:

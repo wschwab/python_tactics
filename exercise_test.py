@@ -436,3 +436,18 @@ def test_getZip():
 @pytest.mark.skipif(empty(tupleComprehension), reason="Tuple Comprehension exercise not started yet")
 def test_tupleComprehension():
     assert doesSomething(setComprehension, 'tuple') and usesGenerator(tupleComprehension)
+
+@pytest.mark.skipif(empty(jekyllDict), reason="Jekyll Dict exercise not started yet")
+def test_jekyllDict():
+    assert jekyllDict['jekyll']
+
+@pytest.mark.skipif(empty(getDictKeys), reason="Get Dict Keys exercise not started yet")
+def test_getDictKeys():
+    testDict = {'un':'one','deux':'two','trois':'three'}
+    expected_output = ['un','deux','trois']
+    assert getDictKeys(testDict) == expected_output
+
+@pytest.mark.skipif(empty(checkMembership), reason="Check Membership exercise not started yet")
+def test_checkMembership():
+    testDict = {'un':'one','deux':'two','trois':'three'}
+    assert checkMembership(testDict, 'quatre') == False and checkMembership(testDict, 'un') == True
