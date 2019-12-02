@@ -51,7 +51,7 @@ def test_declarer():
 
 @pytest.mark.skipif(empty(stringer), reason="Stringer exercise not started yet")
 def test_stringer():
-    assert returnsSomething(stringer()) and type(stringer()) == "string", "should return a string"
+    assert returnsSomething(stringer) and isinstance(stringer(), str), "should return a string"
 
 @pytest.mark.skipif(empty(printAndReturn), reason="Print and Return exercise not started yet")
 def test_printAndReturn():
